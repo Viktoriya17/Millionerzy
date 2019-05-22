@@ -1,0 +1,15 @@
+import random
+lista_pytan = [["Jakiego koloru były smerfy?","A. niebieskiego", "B. różowego", "C. czerwony", "D. zielonego", "A", "a"], ["Która z planet ma pierścienie?", "A. Pluton", "B. Saturn", "C. Neptun","D. Merkury", "B", "b"]]     #ktoś musi dopisać pytania do listy!
+##          ##          ##          ##          ##          ##          ##          ##          ##          ##          ##    
+los_numer_listy = random.randint(0,1)   #losowanie numeru porządkowego dla zadania pytania
+print(lista_pytan[los_numer_listy][0])  #printowanie pytania - z listy (używając wylocowany numer porządkowy)
+for i in range(1, 5):     #printowanie 4!!! odpowiedzi do wyboru - z listy (używając wylocowany numer porządkowy)
+    print(lista_pytan[los_numer_listy][i], end = "   ")
+    print()
+##          ##          ##          ##          ##          ##          ##          ##          ##          ##          ##    
+wybor_uzytkownika = input("Co wybierasz? (wpisz ????) ")  #wpisywanie odpowiedzi #jak poprosic o wpisanie "A" czy "a"?
+
+if wybor_uzytkownika == lista_pytan[los_numer_listy][5] or wybor_uzytkownika == lista_pytan[los_numer_listy][6]:   #sprawdzanie czy wpisana odpowiedz prawdziwa; MA BYĆ NA 6 i 7 MIEJSCU PORZĄDKOWYM(DLA KOMPUTERA NA 5 i 6) W LIŚCIE!! #są dwa możliwe warianty wpisania "A" czy "a" - dlatego robimy (żeby nie przekształcać potem input) odrazu możliwość "A" czy "a".
+    print("Super, to prawda!")
+else:
+    print("Falszywa odp")
