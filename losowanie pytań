@@ -1,6 +1,5 @@
 import random
-lista_pytan = [["Jakiego koloru były smerfy?","A. niebieskiego", "B. różowego", "C. czerwony", "D. zielonego", "A", "a"], ["Która z planet ma pierścienie?", "A. Pluton", "B. Saturn", "C. Neptun","D. Merkury", "B", "b"]]     #ktoś musi dopisać pytania do listy!
-licznik_pieniedzy = 20
+lista_pytan = [["Jakiego koloru były smerfy?","A. niebieskiego", "B. różowego", "C. czerwony", "D. zielonego","A. niebieskiego","A. niebieskiego", "A", "a"], ["Która z planet ma pierścienie?", "A. Pluton", "B. Saturn", "C. Neptun","D. Merkury","B. Saturn","B. Saturn", "B", "b"]]licznik_pieniedzy = 20
 
 ##          ##          ##          ##          ##          ##          ##          ##          ##          ##          ##
 def powitanie(licznik_pieniedzy):    #jakiś początek i powitanie:
@@ -16,7 +15,7 @@ def los_pytan_i_pryjmow_odp(lista_pytan):
         print()
         wybor_uzytkownika = input("Co wybierasz? (wpisz ????) ")  #wpisywanie odpowiedzi #jak poprosic o wpisanie "A" czy "a"?
 
-        if wybor_uzytkownika == lista_pytan[los_numer_listy][5] or wybor_uzytkownika == lista_pytan[los_numer_listy][6]:   #sprawdzanie czy wpisana odpowiedz prawdziwa; MA BYĆ NA 6 i 7 MIEJSCU PORZĄDKOWYM(DLA KOMPUTERA NA 5 i 6) W LIŚCIE!! #są dwa możliwe warianty wpisania "A" czy "a" - dlatego robimy (żeby nie przekształcać potem input) odrazu możliwość "A" czy "a".
+        if wybor_uzytkownika == lista_pytan[los_numer_listy][7] or wybor_uzytkownika == lista_pytan[los_numer_listy][8]:   #sprawdzanie czy wpisana odpowiedz prawdziwa; MA BYĆ NA 8 i 9 MIEJSCU PORZĄDKOWYM(DLA KOMPUTERA NA 7 i 8) W LIŚCIE!! #są dwa możliwe warianty wpisania "A" czy "a" - dlatego robimy (żeby nie przekształcać potem input) odrazu możliwość "A" czy "a".
             print("Super, to prawda!")
             licznik_pieniedzy += 40
             print("Teraz masz na koncie:", licznik_pieniedzy, "złoty")
