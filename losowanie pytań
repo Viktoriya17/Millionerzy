@@ -17,38 +17,37 @@ przegrana=0
 ###################################################################################################################
 def powitanie(wskaznik_progu):
     print("Witaj! Mam na imie Hubert Urbański i dziś zagrasz o milion złotych.")
-    wyswietl_prog(wskaznik_progu)
+    wyswietl_prog()
 ###################################################################################################################
-
 def losowanie_pytania():
         return random.randint(0,len(lista_pytan)-1)
-
 ###################################################################################################################
-
 def wyswietlanie_pytania(lista_pytan,numer_pytania):
     print(lista_pytan[numer_pytania][0])  #printowanie pytania - z listy (używając wylocowany numer porządkowy)
     for i in range(1, 5):     #printowanie 4!!! odpowiedzi do wyboru - z listy (używając wylocowany numer porządkowy)
         print(lista_pytan[numer_pytania][i], end = "   ")
 ###################################################################################################################
-def przyjmowanie_odp(lista_pytan,wskaznik_progu,numer_pytania, przegrana):
+def przyjmowanie_odp(lista_pytan,numer_pytania):
+    global przegrana
+    global wskaznik_progu
     wybor_uzytkownika = input("\nCo wybierasz? (wpisz ????) ")  #wpisywanie odpowiedzi #jak poprosic o wpisanie "A" czy "a"?
     if wybor_uzytkownika == lista_pytan[numer_pytania][7] or wybor_uzytkownika == lista_pytan[numer_pytania][8]:   #sprawdzanie czy wpisana odpowiedz prawdziwa; MA BYĆ NA 6 i 7 MIEJSCU PORZĄDKOWYM(DLA KOMPUTERA NA 5 i 6) W LIŚCIE!! #są dwa możliwe warianty wpisania "A" czy "a" - dlatego robimy (żeby nie przekształcać potem input) odrazu możliwość "A" czy "a".
         print("Super, to prawda!")
         wskaznik_progu += 1
-        wyswietl_prog(wskaznik_progu)
+        wyswietl_prog()
         for i in range(3,0,-1):
             print(i)
-            time.sleep(0.3)
+            time.sleep(0.6)
         os.system('cls')
     else:
         wskaznik_progu = 0
         os.system('cls')
-        print("Koniec gry.")
+        print("Koniec gry.\n")
         przegrana=1
 ###################################################################################################################
-def wyswietl_prog(wskaznik_progu):
-        print("Teraz jestes na progu:", lista_progow[wskaznik_progu],"zl\n\n")
-        #print(wskaznik_progu)
+def wyswietl_prog():
+    global wskaznik_progu
+    print("Teraz jestes na progu:", lista_progow[wskaznik_progu],"zl\n\n")
 ###################################################################################################################
 ###################################################################################################################
 ###################################################################################################################
@@ -60,7 +59,7 @@ while True:
     if przegrana==0:
         aktualne_pytanie=losowanie_pytania()
         wyswietlanie_pytania(lista_pytan,aktualne_pytanie)
-        przyjmowanie_odp(lista_pytan,wskaznik_progu,aktualne_pytanie,przegrana)
+        przyjmowanie_odp(lista_pytan,aktualne_pytanie)
     else:
         print("Przegrales sorki")
         break
